@@ -7,15 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .winner {
     background-color: grey;
     width: 300px;
-    height: 0px;
+    height: 150px;
     position: absolute;
     border-radius: 10px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -23,14 +24,22 @@
     text-transform: uppercase;
     font-size: 25px;
     color: green;
+    position: relative;
 }
 
-winner:after {
-    content: '';
+.close {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.winner__img {
     width: 100%;
     height: 100%;
-    display: block;
-    background-color: rgba(0, 0, 0, 0.5);
+    object-fit: cover;
     position: absolute;
 }
 

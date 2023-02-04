@@ -1,5 +1,7 @@
 let cells = document.querySelectorAll('#field td');
-let result = document.querySelector('#winner')
+let winner = document.querySelector('#winner');
+let result = document.querySelector('#text')
+let close = document.querySelector('#close')
 
 function start(cells) {
     let i = 2;
@@ -14,16 +16,20 @@ function start(cells) {
             }
             this.removeEventListener('click', stat);
             if (iswinner(cells) === true) {
-                result.style.height = '150px';
-                result.textContent = `Победитель ${this.textContent}`;
+                winner.style.display = 'flex';
+                result.textContent = `Победил ${this.textContent}`;
             } else if (i == 10) {
-                result.style.height = '150px';
+                winner.style.display = 'flex';
                 result.textContent = `Ничья!`;
             }
             i++
         })
     }
 }
+
+close.addEventListener('click', function () {
+    winner.style.display = 'none';
+})
 
 function iswinner(cells) {
     let combs = [

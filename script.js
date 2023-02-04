@@ -5,8 +5,8 @@ let close = document.querySelector('#close')
 
 function start(cells) {
     let i = 2;
-    for (let cell1 of cells) {
-        cell1.addEventListener('click', function stat() {
+    for (let cell of cells) {
+        cell.addEventListener('click', function stat() {
             if (i % 2 == 0) {
                 this.textContent = '☭';
                 this.style.color = 'red'
@@ -17,7 +17,7 @@ function start(cells) {
             this.removeEventListener('click', stat);
             if (iswinner(cells) === true) {
                 winner.style.display = 'flex';
-                result.textContent = `Победил ${this.textContent}`;
+                result.textContent = `Победил ${this.textContent}!`;
             } else if (i == 10) {
                 winner.style.display = 'flex';
                 result.textContent = `Ничья!`;
@@ -27,8 +27,14 @@ function start(cells) {
     }
 }
 
+start(cells);
+
 close.addEventListener('click', function () {
     winner.style.display = 'none';
+    for (let cell of cells) {
+        cell.textContent = '';
+    }
+    start(cells);
 })
 
 function iswinner(cells) {
